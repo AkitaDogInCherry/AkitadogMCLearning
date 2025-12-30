@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "AkitadogLearning",
+    "description": "Test addon for learning.",
+    "uuid": "96a84ccc-ba2f-4aeb-9cc3-135e139fda09",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "48b29e8a-a1d5-41d3-9710-cdcdf6424dd7",
+      "version": [1, 0, 0]
+    }
+  ]
+}
