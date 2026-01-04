@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "akitadog:sample_block2"
+    },
+    "components": {
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.5
+      },
+      "minecraft:loot": "loot_tables/blocks/sample_block2.json"
+    }
+  }
+}

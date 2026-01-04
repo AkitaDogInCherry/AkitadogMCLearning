@@ -1,0 +1,24 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "akitadog:sample_block2" 
+    },
+    "components": {
+      "minecraft:geometry": "geometry.full_block",
+      "minecraft:material_instances": {
+        "*": { 
+          "textures": {
+                "up": "sample_block2_top",
+                "down": "sample_block2_top",
+                "north": "sample_block2_side",
+                "south": "sample_block2_side",
+                "east": "sample_block2_side",
+                "west": "sample_block2_side"
+              },
+          "render_method": "opaque" 
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "sample_block1": { "textures": "textures/blocks/sample_block1_texture" },
+    "sample_block2_top": { "textures": "textures/blocks/sample_block2_top_texture" },
+    "sample_block2_side": { "textures": "textures/blocks/sample_block2_side_texture" }
+  }
+}

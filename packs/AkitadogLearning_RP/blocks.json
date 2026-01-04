@@ -1,0 +1,18 @@
+{
+  "format_version": "1.1.0",
+  "akitadog:sample_block1": {
+    "textures": "sample_block1",
+    "sound": "dig.gravel"
+  },
+  "akitadog:sample_block2": {
+    "textures": {
+      "up": "sample_block2_top",
+      "down": "sample_block2_top",
+      "north": "sample_block2_side",
+      "south": "sample_block2_side",
+      "east": "sample_block2_side",
+      "west": "sample_block2_side"
+    },
+    "sound": "dig.wood"
+  }
+}

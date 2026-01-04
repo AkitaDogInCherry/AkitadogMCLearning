@@ -1,0 +1,14 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "akitadog:sample_block1" 
+    },
+    "components": {
+      "minecraft:geometry": "geometry.full_block",
+      "minecraft:material_instances": {
+        "*": { "texture": "sample_block1", "render_method": "opaque" }
+      }
+    }
+  }
+}
