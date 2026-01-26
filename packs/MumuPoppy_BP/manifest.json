@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "MumuPoppy",
+    "description": "Mumu Poppy Playtime Addon.",
+    "uuid": "ac337eca-a35d-419c-967e-56194b139c53",
+    "version": [0, 1, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "4a469644-4704-4018-80cb-2bc4ed9c0c3a",
+      "version": [0, 1, 0]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "resource_pack_name": "MumuPoppy",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "vhs": {
+      "textures": "textures/blocks/vhs"
+    }
+  }
+}
