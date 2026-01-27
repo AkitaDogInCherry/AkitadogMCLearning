@@ -6,6 +6,11 @@
       "menu_category": {
         "category": "construction",
         "group": "itemGroup.name.items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
+        }
       }
     },
     "components": {
@@ -16,17 +21,28 @@
           "render_method": "alpha_test"
         }
       },
-      "minecraft:destructible_by_mining": {
-        "seconds_to_destroy": 2.0
+      "minecraft:destructible_by_mining": { "seconds_to_destroy": 2.0 },
+      "minecraft:selection_box": { "origin": [-2, 0, -4], "size": [4, 2, 8] },
+      "minecraft:collision_box": { "origin": [-2, 0, -4], "size": [4, 2, 8] },
+      "minecraft:loot": "loot_tables/blocks/vhs.json"
+    },
+    "permutations": [
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": { "minecraft:transformation": { "rotation": [0, 270, 0] } }
       },
-      "minecraft:selection_box": {
-        "origin": [-2, 0, -4],
-        "size": [4, 2, 8]
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": { "minecraft:transformation": { "rotation": [0, 0, 0] } }
       },
-      "minecraft:collision_box": {
-        "origin": [-2, 0, -4],
-        "size": [4, 2, 8]
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": { "minecraft:transformation": { "rotation": [0, 90, 0] } }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": { "minecraft:transformation": { "rotation": [0, 180, 0] } }
       }
-    }
+    ]
   }
 }

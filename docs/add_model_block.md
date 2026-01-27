@@ -6,7 +6,7 @@
 
 BlockBenchでファイルを開いた状態から始める。
 
-名前空間とブロック名を決める。ここではminopoppy:vhs（ビデオテープ）とする。
+名前空間とブロック名を決める。ここではmumupoppy:vhs（ビデオテープ）とする。
 
 大文字は使えないので注意。（暗黙の仕様）
 
@@ -15,6 +15,7 @@ BlockBenchでファイルを開いた状態から始める。
 「File」→「Export」→「Export Bedrock Geometry」と進み、「vhs.geo.json」というファイル名で作業場所に保存。
 「File」→「Export」→「Export Texture」と進み、「vhs.png」というファイルで作業場所に保存。
 
+### 
 
 
 ## Geminiの回答メモ
