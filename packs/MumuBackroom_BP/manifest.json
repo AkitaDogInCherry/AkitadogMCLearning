@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "MumuBackroom",
+    "description": "Mumu Backroom Addon.",
+    "uuid": "76dca451-5295-4ac1-91a8-c0413ff37007",
+    "version": [0, 1, 0],
+    "min_engine_version": [1, 21, 0]
+  },
+  "modules": [
+    {
+      "type": "data",
+      "uuid": "0673e84c-4723-4ddb-8bbf-63b6cbd12d68",
+      "version": [0, 1, 0]
+    }
+  ]
+}

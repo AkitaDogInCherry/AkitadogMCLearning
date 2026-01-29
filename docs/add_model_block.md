@@ -1,5 +1,11 @@
 # BlockBenchで作成したオブジェクトをブロック扱いで追加する
 
+## どんなオブジェクトの仕様？
+
+薄い長方形のビデオテープ。
+
+** プレイヤーが置いた時に向いている向きに応じた向きになる。 **
+
 ## フロー
 
 ### ファイルの書き出し
@@ -15,113 +21,137 @@ BlockBenchでファイルを開いた状態から始める。
 「File」→「Export」→「Export Bedrock Geometry」と進み、「vhs.geo.json」というファイル名で作業場所に保存。
 「File」→「Export」→「Export Texture」と進み、「vhs.png」というファイルで作業場所に保存。
 
-### 
 
+vhs.geo.jsonを以下の位置にコピー：
 
-## Geminiの回答メモ
+(リソースパック)/models/blocks/vhs.geo.json
 
-Blockbenchで作ったモデルを統合版（Bedrock Edition）に実装するのは、パズルを組み立てるような楽しさがありますね！
+vhs.pngを以下の位置にコピー：
 
-「原木と同じ設定」や「右クリックで回転」というリソースパック・ビヘイビアパックの両方にまたがる具体的な実装方法を解説します。
+(リソースパック)/textures/blocks/vhs.png
 
----
+### 普通のブロックと同じ部分
 
-## 1. Blockbenchでの書き出し
+(リソースパック)/blocks.json
 
-まず、モデルを正しく書き出す必要があります。
+```blocks.json
 
-* **File > Export > Export Bedrock Geometry**: `.geo.json`として保存。
-* **File > Export > Export Texture**: `.png`として保存。
-* **注意点**: `Project Settings`で「Identifier」を `namespace:model_name`（例: `my:fancy_block`）に設定しておくと、後の作業がスムーズです。
-
----
-
-## 2. リソースパックの設定
-
-モデルの外見を定義します。
-
-### ジオメトリとテクスチャの配置
-
-1. `models/blocks/` 内に `.geo.json` を配置。
-2. `textures/blocks/` 内に `.png` を配置。
-
-### blocks.json の編集
-
-ブロックの見た目と名前を紐付けます。
-
-```json
 {
-  "my:fancy_block": {
-    "textures": "fancy_block_texture_name"
+  "format_version": [1, 1, 0],
+  (中略)
+  "mumupoppy:vhs": {
+    "textures": "vhs",
+    "sound": "wood"
   }
 }
 
 ```
 
----
+(リソースパック)/textures/terrain_texture.json
 
-## 3. ビヘイビアパックの設定（ここが本番！）
+``` terrain_texture.json
 
-「原木と同じ硬さ」「回転」などのロジックをここに書きます。
-
-`entities`ではなく、**`blocks/fancy_block.json`** を作成します。
-
-### 基本構成（破壊速度とドロップ）
-
-「原木と同じ」にするには、`minecraft:destructible_by_mining` の `seconds_to_destroy` を **2.0**（素手の場合。斧だと早くなる）に設定します。
-
-```json
 {
-  "format_version": "1.20.10",
+  "resource_pack_name": "MumuPoppy",
+  "texture_name": "atlas.terrain",
+  "texture_data": {
+    "vhs": {
+      "textures": "textures/blocks/vhs"
+    }
+  }
+}
+
+```
+
+### 難しい部分
+
+#### とりあえず、サンプルコード
+
+(ビヘイビアーパック)/blocks/vhs.jsonは以下のようにする。
+
+```vhs.json
+
+{
+  "format_version": "1.21.0",
   "minecraft:block": {
     "description": {
-      "identifier": "my:fancy_block",
-      "properties": { "my:rotation": [0, 1, 2, 3, 4, 5, 6, 7] } // 1/8回転用
-    },
-    "components": {
-      "minecraft:destructible_by_mining": { "seconds_to_destroy": 2.0 },
-      "minecraft:loot": "loot_tables/blocks/fancy_block.json",
-      "minecraft:geometry": "geometry.my_model",
-      "minecraft:material_instances": { "*": { "texture": "fancy_block_texture_name", "render_method": "alpha_test" } },
-      "minecraft:on_interact": {
-        "condition": "query.is_sneaking == false",
-        "event": "update_rotation"
-      }
-    },
-    "events": {
-      "update_rotation": {
-        "set_block_property": {
-          "my:rotation": "query.block_property('my:rotation') == 7 ? 0 : query.block_property('my:rotation') + 1"
+      "identifier": "mumupoppy:vhs",
+      "menu_category": {
+        "category": "construction",
+        "group": "itemGroup.name.items"
+      },
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": ["minecraft:cardinal_direction"]
         }
       }
     },
+    "components": {
+      "minecraft:geometry": "geometry.vhs",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "vhs",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:destructible_by_mining": { "seconds_to_destroy": 2.0 },
+      "minecraft:selection_box": { "origin": [-2, 0, -4], "size": [4, 2, 8] },
+      "minecraft:collision_box": { "origin": [-2, 0, -4], "size": [4, 2, 8] },
+      "minecraft:loot": "loot_tables/blocks/vhs.json"
+    },
     "permutations": [
       {
-        "condition": "query.block_property('my:rotation') == 1",
-        "components": { "minecraft:transformation": { "rotation": [0, 45, 0] } }
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": { "minecraft:transformation": { "rotation": [0, 270, 0] } }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": { "minecraft:transformation": { "rotation": [0, 0, 0] } }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": { "minecraft:transformation": { "rotation": [0, 90, 0] } }
+      },
+      {
+        "condition": "query.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": { "minecraft:transformation": { "rotation": [0, 180, 0] } }
       }
-      // ...これを7まで繰り返す（45度ずつ加算）
     ]
   }
 }
 
 ```
 
----
+比較として、ただのブロックはこんな感じ。
 
-## 4. 1/8回転（45度ずつ）の実装ポイント
+```sample_block1.json
 
-上記の `permutations`（置換）を使うのがもっとも確実です。
+{
+  "format_version": "1.21.0",
+  "minecraft:block": {
+    "description": {
+      "identifier": "akitadog:sample_block1"
+    },
+    "components": {
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
 
-* **Property**: `my:rotation` という数値を定義。
-* **Event**: `on_interact`（右クリック）されたときに、その数値を +1 する。
-* **Transformation**: 数値が 1 なら 45度、2 なら 90度... とモデルを回転させる。
-* **設置時の向き**: 設置した瞬間のプレイヤーの向きに合わせる場合は、`minecraft:on_placed` イベントで `query.cardinal_facing_2d` を取得する処理が必要になりますが、まずは手動回転から試すのがおすすめです。
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
 
----
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.5
+      },
+      "minecraft:loot": "loot_tables/blocks/sample_block1.json"
+    }
+  }
+}
 
-## 5. 次のステップ
+```
 
-モデルが表示されない、あるいはピンク色のチェック模様（テクスチャエラー）になる場合は、`terrain_texture.json` の設定が漏れている可能性が高いです。
+#### 比較しながら詳しく見ていく
 
-もしよろしければ、**「terrain_texture.json」の書き方や、ドロップアイテムを定義する「Loot Table」の具体的な書き方**についても詳しく解説しましょうか？
+** プレイヤーが置いた時に向いている向きに応じた向きになる。 **
+
+これは、「trait」と「permutations」の記載内容によって実現している。
