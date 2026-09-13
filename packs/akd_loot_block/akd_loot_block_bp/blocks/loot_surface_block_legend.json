@@ -1,0 +1,29 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "akd_loot_block:loot_surface_block_legend"
+    },
+    "components": {
+      "minecraft:display_name": "マエスケ",
+      "minecraft:geometry": "minecraft:geometry.full_block",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "loot_surface_block_legend",
+          "render_method": "opaque"
+        }
+      },
+      "minecraft:collision_box": true,
+      "minecraft:selection_box": true,
+      "minecraft:light_dampening": 15,
+      "minecraft:light_emission": 12,
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 0.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 0.5
+      },
+      "minecraft:loot": "loot_tables/blocks/loot_surface_block_legend.json"
+    }
+  }
+}

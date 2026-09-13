@@ -1,0 +1,17 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "akd_loot_block",
+    "description": "Akitadogの開発テストアドオン。お宝を吐き出す芋ブロックをランダム生成する",
+    "uuid": "0b631d24-b8a9-418e-a1a2-14edec4cd9af",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 26, 40]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "8412439c-ad42-462c-b1dd-cdf3e40c4ca1",
+      "version": [1, 0, 0]
+    }
+  ]
+}

@@ -134,7 +134,7 @@ UUIDは[このサイト](https://www.uuidgenerator.net/version4)で作ること�
     "description": "(リソースパックの説明)",
     "uuid": "(uuid.jsonのrp_uuidの値)",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 0]
+    "min_engine_version": [1, 26, 40]
   },
   "modules": [
     {
@@ -156,7 +156,7 @@ UUIDは[このサイト](https://www.uuidgenerator.net/version4)で作ること�
     "description": "(ビヘイバーパックの説明)",
     "uuid": "(uuid.jsonのbp_uuidの値)",
     "version": [1, 0, 0],
-    "min_engine_version": [1, 21, 0]
+    "min_engine_version": [1, 26, 40]
   },
   "modules": [
     {
@@ -168,6 +168,8 @@ UUIDは[このサイト](https://www.uuidgenerator.net/version4)で作ること�
 }
 
 ```
+
+バージョンの数値は[ここ](./versions.md)を参照。
 
 ### com.mojang内から作業フォルダへの**ジャンクション**を作る
 

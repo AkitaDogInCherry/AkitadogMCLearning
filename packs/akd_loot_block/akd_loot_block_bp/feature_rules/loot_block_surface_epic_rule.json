@@ -1,0 +1,38 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:feature_rules": {
+    "description": {
+      "identifier": "akd_loot_block:loot_block_surface_epic_rule",
+      "places_feature": "akd_loot_block:loot_block_surface_epic"
+    },
+
+    "conditions": {
+      "placement_pass": "after_surface_pass",
+
+      "minecraft:biome_filter": [
+        {
+          "test": "has_biome_tag",
+          "operator": "==",
+          "value": "overworld"
+        }
+      ]
+    },
+    "distribution": {
+      "iterations": 8,
+      "scatter_chance": {
+        "numerator": 1,
+        "denominator": 32
+      },
+      "coordinate_eval_order": "xzy",
+      "x": {
+        "distribution": "uniform",
+        "extent": [4, 11]
+      },
+      "z": {
+        "distribution": "uniform",
+        "extent": [4, 11]
+      },
+      "y": "query.heightmap(variable.worldx, variable.worldz)"
+    }
+  }
+}
