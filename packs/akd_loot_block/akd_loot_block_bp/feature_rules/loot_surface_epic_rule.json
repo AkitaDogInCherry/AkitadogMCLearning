@@ -2,8 +2,8 @@
   "format_version": "1.26.40",
   "minecraft:feature_rules": {
     "description": {
-      "identifier": "akd_loot_block:loot_block_surface_rule",
-      "places_feature": "akd_loot_block:loot_block_surface"
+      "identifier": "akd_loot_block:loot_surface_epic_rule",
+      "places_feature": "akd_loot_block:loot_surface_epic"
     },
 
     "conditions": {
@@ -17,28 +17,22 @@
         }
       ]
     },
-
     "distribution": {
       "iterations": 2,
-
       "scatter_chance": {
         "numerator": 1,
-        "denominator": 16
+        "denominator": 48
       },
-
       "coordinate_eval_order": "xzy",
-
       "x": {
         "distribution": "uniform",
         "extent": [0, 15]
       },
-
       "z": {
         "distribution": "uniform",
         "extent": [0, 15]
       },
-
-      "y": "query.heightmap(variable.worldx, variable.worldz) - 1"
+      "y": "query.heightmap(variable.worldx, variable.worldz)"
     }
   }
 }

@@ -1,12 +1,12 @@
 {
   "format_version": "1.19.30",
-  "akd_loot_block:loot_surface_block": {
+  "akd_loot_block:loot_common": {
     "sound": "gravel"
   },
-  "akd_loot_block:loot_surface_block_epic": {
+  "akd_loot_block:loot_epic": {
     "sound": "gravel"
   },
-  "akd_loot_block:loot_surface_block_legend": {
+  "akd_loot_block:loot_legend": {
     "sound": "gravel"
   }
 }

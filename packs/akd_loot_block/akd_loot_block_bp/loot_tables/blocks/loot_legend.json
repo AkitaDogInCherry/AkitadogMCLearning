@@ -8,27 +8,43 @@
       "entries": [
         {
           "type": "item",
-          "name": "akd_loot_block:loot_surface_block_epic",
+          "name": "akd_loot_block:loot_legend",
           "weight": 1
         },
         {
           "type": "item",
-          "name": "minecraft:redstone",
+          "name": "minecraft:diamond",
           "weight": 2
         },
         {
           "type": "item",
-          "name": "minecraft:iron_ingot",
+          "name": "minecraft:iron_block",
           "weight": 2
         },
         {
           "type": "item",
-          "name": "minecraft:coal",
+          "name": "minecraft:ghast_tear",
           "weight": 3
         },
         {
           "type": "item",
-          "name": "minecraft:white_wool",
+          "name": "minecraft:golden_apple",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "minecraft:emerald",
+          "weight": 3,
+          "functions": [
+            {
+              "function": "set_count",
+              "count": 2
+            }
+          ]
+        },
+        {
+          "type": "item",
+          "name": "minecraft:ender_pearl",
           "weight": 3,
           "functions": [
             {
@@ -39,45 +55,23 @@
         },
         {
           "type": "item",
-          "name": "minecraft:wheat_seeds",
+          "name": "minecraft:obsidian",
           "weight": 3,
           "functions": [
             {
               "function": "set_count",
-              "count": 8
+              "count": 3
             }
           ]
         },
         {
           "type": "item",
-          "name": "minecraft:oak_log",
+          "name": "minecraft:gold_ingot",
           "weight": 3,
           "functions": [
             {
               "function": "set_count",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "minecraft:cobblestone",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": 4
-            }
-          ]
-        },
-        {
-          "type": "item",
-          "name": "minecraft:sand",
-          "weight": 3,
-          "functions": [
-            {
-              "function": "set_count",
-              "count": 4
+              "count": 2
             }
           ]
         }

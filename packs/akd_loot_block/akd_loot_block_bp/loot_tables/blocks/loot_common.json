@@ -8,7 +8,7 @@
       "entries": [
         {
           "type": "item",
-          "name": "akd_loot_block:loot_surface_block",
+          "name": "akd_loot_block:loot_common",
           "weight": 1
         },
         {

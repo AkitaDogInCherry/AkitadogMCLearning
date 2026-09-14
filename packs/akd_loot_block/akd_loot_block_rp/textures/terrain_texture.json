@@ -2,8 +2,8 @@
   "texture_name": "atlas.terrain",
   "resource_pack_name": "akd_loot_block_rp",
   "texture_data": {
-    "loot_surface_block": { "textures": "textures/blocks/loot_surface_block" },
-    "loot_surface_block_epic": { "textures": "textures/blocks/loot_surface_block_epic" },
-    "loot_surface_block_legend": { "textures": "textures/blocks/loot_surface_block_legend" }
+    "loot_common": { "textures": "textures/blocks/loot_common" },
+    "loot_epic": { "textures": "textures/blocks/loot_epic" },
+    "loot_legend": { "textures": "textures/blocks/loot_legend" }
   }
 }

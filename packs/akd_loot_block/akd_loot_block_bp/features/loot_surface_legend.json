@@ -2,9 +2,9 @@
   "format_version": "1.26.40",
   "minecraft:single_block_feature": {
     "description": {
-      "identifier": "akd_loot_block:loot_block_surface"
+      "identifier": "akd_loot_block:loot_surface_legend"
     },
-    "places_block": "akd_loot_block:loot_surface_block",
+    "places_block": "akd_loot_block:loot_legend",
     "may_replace": [
       "minecraft:grass_block",
       "minecraft:sand",
